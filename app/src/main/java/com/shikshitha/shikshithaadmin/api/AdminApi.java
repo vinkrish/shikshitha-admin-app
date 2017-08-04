@@ -79,6 +79,7 @@ public interface AdminApi {
     Call<Void> sendTeacherPswd(@Path("teacherId") long teacherId);
 
     @POST("sms/{schoolId}/{homeworkDate}")
-    Call<Void> sendHomeworkSMS(@Path("studentId") long studentId);
+    Call<Void> sendHomeworkSMS(@Path("schoolId") long schoolId,
+                               @Path("homeworkDate") String homeworkDate);
 
 }

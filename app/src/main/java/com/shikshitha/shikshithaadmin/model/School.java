@@ -164,4 +164,7 @@ public class School {
         this.numberOfStudents = numberOfStudents;
     }
 
+    public String toString() {
+        return schoolName;
+    }
 }

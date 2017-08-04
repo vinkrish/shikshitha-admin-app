@@ -27,4 +27,12 @@ public class SharedPreferenceUtil {
         return adminCredentials;
     }
 
+    public static void logout(Context context) {
+        SharedPreferences sharedPref = context.getSharedPreferences("credentials", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("authToken", "");
+        editor.putLong("schoolId", 0);
+        editor.apply();
+    }
+
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/send_homework"
+        android:title="@string/one"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/send_students_pswd"
+        android:title="@string/two"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/send_class_pswd"
+        android:title="@string/three"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/send_section_pswd"
+        android:title="@string/four"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/send_student_pswd"
+        android:title="@string/five"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/send_teachers_pswd"
+        android:title="@string/six"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/send_teacher_pswd"
+        android:title="@string/seven"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/update_students_pswd"
+        android:title="@string/eight"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/update_class_pswd"
+        android:title="@string/nine"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/update_section_pswd"
+        android:title="@string/ten"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/update_student_pswd"
+        android:title="@string/eleven"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/update_teachers_pswd"
+        android:title="@string/twelve"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/update_teacher_pswd"
+        android:title="@string/thirteen"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"
+        android:visible="true"
+        app:showAsAction="never" />
+
+</menu>

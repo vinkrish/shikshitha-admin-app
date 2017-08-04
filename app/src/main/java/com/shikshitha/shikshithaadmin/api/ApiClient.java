@@ -35,7 +35,7 @@ public class ApiClient {
                         Request original = chain.request();
                         Request.Builder requestBuilder = original.newBuilder()
                                 .header("Authorization",
-                                        "Bearer " + SharedPreferenceUtil.getAuthToken(App.getInstance()))
+                                        "Bearer " + SharedPreferenceUtil.getAuthToken(App.getInstance()).getToken())
                                 .header("Content-Type", "application/json");
                         Request request = requestBuilder.build();
                         return chain.proceed(request);

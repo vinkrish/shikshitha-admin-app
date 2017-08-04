@@ -11,11 +11,11 @@ import com.shikshitha.shikshithaadmin.R;
 
 public class ReplaceFragment {
 
-    public static void replace(Fragment f, FragmentManager fm) {
+    /*public static void replace(Fragment f, FragmentManager fm) {
         fm
                 .beginTransaction()
                 .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
                 .replace(R.id.content_frame, f).commit();
-    }
+    }*/
 
 }
