@@ -25,6 +25,7 @@ import com.shikshitha.shikshithaadmin.model.School;
 import com.shikshitha.shikshithaadmin.model.Section;
 import com.shikshitha.shikshithaadmin.model.Student;
 import com.shikshitha.shikshithaadmin.model.Teacher;
+import com.shikshitha.shikshithaadmin.util.ElasticBeanstalkReceiver;
 import com.shikshitha.shikshithaadmin.util.ReplaceFragment;
 import com.shikshitha.shikshithaadmin.util.SharedPreferenceUtil;
 
@@ -67,6 +68,9 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
         presenter.getSchoolList();
 
         //ReplaceFragment.replace(new HomeFragment(), getFragmentManager());
+
+        ElasticBeanstalkReceiver alarm = new ElasticBeanstalkReceiver();
+        alarm.setAlarm(getApplicationContext());
 
     }
 

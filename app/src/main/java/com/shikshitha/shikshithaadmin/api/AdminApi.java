@@ -23,6 +23,9 @@ import retrofit2.http.Path;
 
 public interface AdminApi {
 
+    @POST("login/elasticbeanstalk")
+    Call<Void> keepServerUp();
+
     @Headers("content-type: application/json")
     @POST("login/admin")
     Call<AdminCredentials> login(@Body Credentials credentials);
