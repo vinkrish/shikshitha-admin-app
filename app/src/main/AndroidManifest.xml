@@ -37,11 +37,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar" />
 
-        <service
-            android:name=".util.ElasticBeanstalkService" />
+        <service android:name=".util.ElasticBeanstalkService" />
 
         <receiver android:name=".util.ElasticBeanstalkReceiver" />
-
         <receiver
             android:name=".util.BootReceiver"
             android:enabled="false">
@@ -49,6 +47,15 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".version.VersionActivity"
+            android:label="@string/title_activity_version"
+            android:theme="@style/NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".dashboard.DashboardActivity" />
+        </activity>
     </application>
 
 </manifest>

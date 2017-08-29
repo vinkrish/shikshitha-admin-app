@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Super-Admin</string>
+    <string name="app_name">Prez</string>
 
     <string name="login">Login</string>
     <string name="forgot_password">Forgot password?</string>
@@ -15,7 +15,7 @@
     <string name="request_error">Connection timed out.</string>
     <string name="retry">Retry</string>
     <string name="refresh">Refresh</string>
-    <string name="title_activity_dashboard">Shikshitha - Super Admin</string>
+    <string name="title_activity_dashboard">Shikshitha - Prez Control</string>
 
     <string name="one">Send Homework</string>
     <string name="two">Send Students Pswd</string>
@@ -36,7 +36,13 @@
     <string name="select_section">Select Section</string>
     <string name="select_student">Select Student</string>
     <string name="select_teacher">Select Teacher</string>
+    <string name="manage_version">Manage App Version</string>
+
+    <string name="ver_id">Version Id</string>
+    <string name="ver_name">Version Name</string>
+    <string name="ver_status">Version Status</string>
 
     <string name="logout">Logout</string>
+    <string name="title_activity_version">App Version Control</string>
 
 </resources>

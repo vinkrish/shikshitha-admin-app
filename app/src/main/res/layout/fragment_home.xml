@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.shikshitha.shikshithaadmin.fragment.HomeFragment">
+    tools:context="com.shikshitha.shikshithaadmin.dashboard.DashboardActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -89,6 +89,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_tiny"
             android:paddingBottom="@dimen/spacing_small" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:background="@drawable/green_btn_ripple"
+            android:onClick="manageVersion"
+            android:text="@string/manage_version"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/text_medium" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

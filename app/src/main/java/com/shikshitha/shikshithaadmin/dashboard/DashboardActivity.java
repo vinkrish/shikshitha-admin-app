@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +17,6 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.shikshitha.shikshithaadmin.R;
-import com.shikshitha.shikshithaadmin.fragment.HomeFragment;
 import com.shikshitha.shikshithaadmin.login.LoginActivity;
 import com.shikshitha.shikshithaadmin.model.Clas;
 import com.shikshitha.shikshithaadmin.model.School;
@@ -26,8 +24,8 @@ import com.shikshitha.shikshithaadmin.model.Section;
 import com.shikshitha.shikshithaadmin.model.Student;
 import com.shikshitha.shikshithaadmin.model.Teacher;
 import com.shikshitha.shikshithaadmin.util.ElasticBeanstalkReceiver;
-import com.shikshitha.shikshithaadmin.util.ReplaceFragment;
 import com.shikshitha.shikshithaadmin.util.SharedPreferenceUtil;
+import com.shikshitha.shikshithaadmin.version.VersionActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -66,8 +64,6 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
         presenter = new DashboardPresenterImpl(this, new DashboardInteractorImpl());
 
         presenter.getSchoolList();
-
-        //ReplaceFragment.replace(new HomeFragment(), getFragmentManager());
 
         ElasticBeanstalkReceiver alarm = new ElasticBeanstalkReceiver();
         alarm.setAlarm(getApplicationContext());
@@ -249,5 +245,9 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    public void manageVersion(View view) {
+        startActivity(new Intent(this, VersionActivity.class));
     }
 }

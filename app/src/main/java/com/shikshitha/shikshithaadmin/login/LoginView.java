@@ -13,8 +13,6 @@ interface LoginView {
 
     void showError(String message);
 
-    void noUser();
-
     void saveUser(AdminCredentials adminCredentials);
 
     void navigateToDashboard();

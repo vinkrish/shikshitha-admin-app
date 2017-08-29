@@ -22,8 +22,8 @@ class LoginInteractorImpl implements LoginInteractor {
     public void login(final Credentials credentials, final OnLoginFinishedListener listener) {
         AdminApi adminApi = ApiClient.getClient().create(AdminApi.class);
 
-        Call<AdminCredentials> login = adminApi.login(credentials);
-        login.enqueue(new Callback<AdminCredentials>() {
+        Call<AdminCredentials> queue = adminApi.login(credentials);
+        queue.enqueue(new Callback<AdminCredentials>() {
             @Override
             public void onResponse(Call<AdminCredentials> call, Response<AdminCredentials> response) {
                 if(response.isSuccessful()) {

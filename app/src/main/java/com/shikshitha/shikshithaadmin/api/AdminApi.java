@@ -1,6 +1,7 @@
 package com.shikshitha.shikshithaadmin.api;
 
 import com.shikshitha.shikshithaadmin.model.AdminCredentials;
+import com.shikshitha.shikshithaadmin.model.AppVersion;
 import com.shikshitha.shikshithaadmin.model.Clas;
 import com.shikshitha.shikshithaadmin.model.Credentials;
 import com.shikshitha.shikshithaadmin.model.School;
@@ -12,9 +13,10 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -26,7 +28,6 @@ public interface AdminApi {
     @POST("login/elasticbeanstalk")
     Call<Void> keepServerUp();
 
-    @Headers("content-type: application/json")
     @POST("login/admin")
     Call<AdminCredentials> login(@Body Credentials credentials);
 
@@ -84,5 +85,17 @@ public interface AdminApi {
     @POST("sms/{schoolId}/{homeworkDate}")
     Call<Void> sendHomeworkSMS(@Path("schoolId") long schoolId,
                                @Path("homeworkDate") String homeworkDate);
+
+    @GET("appversion")
+    Call<List<AppVersion>> geAppVersions();
+
+    @DELETE("appversion/{id}")
+    Call<Void> deleteAppVersion(@Path("id") long id);
+
+    @POST("appversion")
+    Call<Void> addAppVersion(@Body AppVersion appVersion);
+
+    @PUT("appversion")
+    Call<Void> updateAppVersion(@Body AppVersion appVersion);
 
 }

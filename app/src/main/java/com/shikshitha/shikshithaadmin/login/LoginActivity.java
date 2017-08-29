@@ -25,7 +25,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
-
     @BindView(R.id.login_id_et)
     EditText loginId;
     @BindView(R.id.password_et) EditText password;
@@ -74,11 +73,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @Override
     public void showError(String message) {
         showSnackbar(message);
-    }
-
-    @Override
-    public void noUser() {
-        showSnackbar(getString(R.string.no_user));
     }
 
     @Override
