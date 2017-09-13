@@ -124,6 +124,9 @@ public class VersionActivity extends AppCompatActivity implements VersionView {
             EditText verId = view.findViewById(R.id.version_id_et);
             verId.setText(String.valueOf(appVersion.getVersionId()));
             verId.setKeyListener(null);
+            EditText appName = view.findViewById(R.id.app_name_et);
+            appName.setText(appVersion.getAppName());
+            appName.setKeyListener(null);
             final EditText verName = view.findViewById(R.id.version_name_et);
             verName.setText(appVersion.getVersionName());
             final EditText verStatus = view.findViewById(R.id.version_status_et);
@@ -163,6 +166,7 @@ public class VersionActivity extends AppCompatActivity implements VersionView {
         final EditText verId = view.findViewById(R.id.version_id_et);
         final EditText verName = view.findViewById(R.id.version_name_et);
         final EditText verStatus = view.findViewById(R.id.version_status_et);
+        final EditText appName = view.findViewById(R.id.app_name_et);
         builder.setView(view);
 
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
@@ -172,6 +176,7 @@ public class VersionActivity extends AppCompatActivity implements VersionView {
                     appVersion.setVersionId(Integer.parseInt(verId.getText().toString()));
                     appVersion.setVersionName(verName.getText().toString());
                     appVersion.setStatus(verStatus.getText().toString());
+                    appVersion.setAppName(appName.getText().toString());
                     presenter.addAppVersion(appVersion);
                 } else {
                     showSnackbar("You are offline !");

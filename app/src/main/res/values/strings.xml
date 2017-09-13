@@ -40,6 +40,7 @@
 
     <string name="ver_id">Version Id</string>
     <string name="ver_name">Version Name</string>
+    <string name="appname">App Name</string>
     <string name="ver_status">Version Status</string>
 
     <string name="logout">Logout</string>

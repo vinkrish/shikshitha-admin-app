@@ -6,7 +6,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/admin_splash" />
+            android:src="@drawable/superadmin_splash" />
     </item>
 
 </layer-list>

@@ -4,6 +4,7 @@ public class AppVersion {
     private int id;
     private int versionId;
     private String versionName;
+    private String appName;
     private String status;
 
     public int getId() {
@@ -28,6 +29,14 @@ public class AppVersion {
 
     public void setVersionName(String versionName) {
         this.versionName = versionName;
+    }
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 
     public String getStatus() {

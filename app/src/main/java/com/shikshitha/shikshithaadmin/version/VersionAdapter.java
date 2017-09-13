@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.amulyakhare.textdrawable.TextDrawable;
-import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.shikshitha.shikshithaadmin.R;
 import com.shikshitha.shikshithaadmin.model.AppVersion;
 
@@ -59,6 +57,8 @@ class VersionAdapter extends RecyclerView.Adapter<VersionAdapter.ViewHolder> {
         TextView appVersionId;
         @BindView(R.id.app_version_status)
         TextView appVersionStatus;
+        @BindView(R.id.app_name)
+        TextView appName;
 
         ViewHolder(View view) {
             super(view);
@@ -68,6 +68,7 @@ class VersionAdapter extends RecyclerView.Adapter<VersionAdapter.ViewHolder> {
         void bind(final AppVersion appVersion, final OnItemClickListener listener) {
             appVersionId.setText(String.valueOf(appVersion.getVersionId()));
             appVersionStatus.setText(appVersion.getStatus());
+            appName.setText(appVersion.getAppName());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
