@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
@@ -47,6 +48,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
     @BindView(R.id.section_spinner) Spinner sectionSpinner;
     @BindView(R.id.student_spinner) Spinner studentSpinner;
     @BindView(R.id.teacher_spinner) Spinner teacherSpinner;
+    @BindView(R.id.sms) EditText smsSent;
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
@@ -226,6 +228,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
             case R.id.school_spinner:
                 presenter.getClassList(((School)schoolSpinner.getSelectedItem()).getId());
                 presenter.getTeacherList(((School)schoolSpinner.getSelectedItem()).getId());
+                smsSent.setText(String.valueOf(((School) schoolSpinner.getSelectedItem()).getNumberOfSms()));
                 break;
             case R.id.class_spinner:
                 presenter.getSectionList(((Clas)classSpinner.getSelectedItem()).getId());

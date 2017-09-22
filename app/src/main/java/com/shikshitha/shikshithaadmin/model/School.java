@@ -19,6 +19,7 @@ public class School {
     private String pincode;
     private long principalId;
     private int numberOfStudents;
+    private int numberOfSms;
 
     public long getId() {
         return id;
@@ -166,5 +167,13 @@ public class School {
 
     public String toString() {
         return schoolName;
+    }
+
+    public int getNumberOfSms() {
+        return numberOfSms;
+    }
+
+    public void setNumberOfSms(int numberOfSms) {
+        this.numberOfSms = numberOfSms;
     }
 }
