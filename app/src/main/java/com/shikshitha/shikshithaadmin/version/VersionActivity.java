@@ -15,7 +15,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.shikshitha.shikshithaadmin.R;
 import com.shikshitha.shikshithaadmin.model.AppVersion;
@@ -23,6 +26,7 @@ import com.shikshitha.shikshithaadmin.util.DividerItemDecoration;
 import com.shikshitha.shikshithaadmin.util.NetworkUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -35,6 +39,8 @@ public class VersionActivity extends AppCompatActivity implements VersionView {
     CoordinatorLayout coordinatorLayout;
     @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.spinner)
+    Spinner spinner;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
@@ -49,9 +55,16 @@ public class VersionActivity extends AppCompatActivity implements VersionView {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         presenter = new VersionPresenterImpl(this, new VersionInteractorImpl());
+
+        ArrayAdapter<String> spinnerAdapter = new
+                ArrayAdapter<>(this, R.layout.spinner_header,
+                Arrays.asList("admin", "parent", "principal", "sms", "teacher"));
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setNestedScrollingEnabled(false);
@@ -84,6 +97,18 @@ public class VersionActivity extends AppCompatActivity implements VersionView {
         if(NetworkUtil.isNetworkAvailable(this)) {
             presenter.getAppVersions();
         }
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                adapter.replaceData(adapterView.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     @Override
@@ -113,7 +138,7 @@ public class VersionActivity extends AppCompatActivity implements VersionView {
 
     @Override
     public void showVersions(List<AppVersion> appVersions) {
-        adapter.replaceData(appVersions);
+        adapter.setDataSet(appVersions);
     }
 
     VersionAdapter.OnItemClickListener mItemListener = new VersionAdapter.OnItemClickListener() {

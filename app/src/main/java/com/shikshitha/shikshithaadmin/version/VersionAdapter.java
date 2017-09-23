@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.shikshitha.shikshithaadmin.R;
 import com.shikshitha.shikshithaadmin.model.AppVersion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -19,6 +20,7 @@ import butterknife.ButterKnife;
  */
 
 class VersionAdapter extends RecyclerView.Adapter<VersionAdapter.ViewHolder> {
+    private List<AppVersion> allItems;
     private List<AppVersion> items;
     private final OnItemClickListener listener;
 
@@ -26,13 +28,24 @@ class VersionAdapter extends RecyclerView.Adapter<VersionAdapter.ViewHolder> {
         void onItemClick(AppVersion group);
     }
 
-    VersionAdapter(List<AppVersion> items, OnItemClickListener listener) {
-        this.items = items;
+    VersionAdapter(List<AppVersion> allItems, OnItemClickListener listener) {
+        this.allItems = allItems;
+        this.items = new ArrayList<>();
         this.listener = listener;
     }
 
-    void replaceData(List<AppVersion> items) {
-        this.items = items;
+    void setDataSet(List<AppVersion> allItems) {
+        this.allItems = allItems;
+        replaceData("admin");
+    }
+
+    void replaceData(String filter) {
+        items = new ArrayList<>();
+        for(AppVersion appVersion: allItems) {
+            if(appVersion.getAppName().equals(filter)) {
+                items.add(appVersion);
+            }
+        }
         notifyDataSetChanged();
     }
 
