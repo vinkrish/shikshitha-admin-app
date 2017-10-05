@@ -67,6 +67,9 @@ public interface AdminApi {
     @POST("sms/school/{schoolId}")
     Call<Void> sendSchoolPswd(@Path("schoolId") long schoolId);
 
+    @POST("sms/school/{schoolId}/unlogged")
+    Call<Void> sendUnloggedStdsPswd(@Path("schoolId") long schoolId);
+
     @POST("sms/class/{classId}")
     Call<Void> sendClassPswd(@Path("classId") long classId);
 
@@ -78,6 +81,9 @@ public interface AdminApi {
 
     @POST("sms/teachers/school/{schoolId}")
     Call<Void> sendTeachersPswd(@Path("schoolId") long schoolId);
+
+    @POST("sms/teachers/school/{schoolId}/unlogged")
+    Call<Void> sendUnloggedTchrsPswd(@Path("schoolId") long schoolId);
 
     @POST("sms/teacher/id/{teacherId}")
     Call<Void> sendTeacherPswd(@Path("teacherId") long teacherId);

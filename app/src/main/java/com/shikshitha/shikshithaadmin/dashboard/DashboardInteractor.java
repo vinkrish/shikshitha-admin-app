@@ -43,6 +43,8 @@ interface DashboardInteractor {
 
     void sendSchoolStudentsPswd(long schoolId, DashboardInteractor.OnFinishedListener listener);
 
+    void sendUnloggedStudentsPswd(long schoolId, DashboardInteractor.OnFinishedListener listener);
+
     void sendClassStudentsPswd(long classId, DashboardInteractor.OnFinishedListener listener);
 
     void sendSectionStudentsPswd(long sectionId, DashboardInteractor.OnFinishedListener listener);
@@ -50,6 +52,8 @@ interface DashboardInteractor {
     void sendStudentPswd(long studentId, DashboardInteractor.OnFinishedListener listener);
 
     void sendSchoolTeachersPswd(long schoolId, DashboardInteractor.OnFinishedListener listener);
+
+    void sendUnloggedTeachersPswd(long schoolId, DashboardInteractor.OnFinishedListener listener);
 
     void sendTeacherPswd(long teacherId, DashboardInteractor.OnFinishedListener listener);
 

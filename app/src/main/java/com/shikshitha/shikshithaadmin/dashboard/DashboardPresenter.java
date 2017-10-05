@@ -19,6 +19,8 @@ interface DashboardPresenter {
 
     void sendSchoolStudentsPswd(long schoolId);
 
+    void sendUnloggedStdsPswd(long schoolId);
+
     void sendClassStudentsPswd(long classId);
 
     void sendSectionStudentsPswd(long sectionId);
@@ -26,6 +28,8 @@ interface DashboardPresenter {
     void sendStudentPswd(long studentId);
 
     void sendSchoolTeachersPswd(long schoolId);
+
+    void sendUnloggedTchrsPswd(long schoolId);
 
     void sendTeacherPswd(long teacherId);
 

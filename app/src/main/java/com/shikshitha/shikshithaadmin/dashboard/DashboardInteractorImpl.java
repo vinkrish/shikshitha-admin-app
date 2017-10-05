@@ -176,6 +176,28 @@ class DashboardInteractorImpl implements DashboardInteractor {
     }
 
     @Override
+    public void sendUnloggedStudentsPswd(long schoolId, final OnFinishedListener listener) {
+        AdminApi api = ApiClient.getAuthorizedClient().create(AdminApi.class);
+
+        Call<Void> queue = api.sendUnloggedStdsPswd(schoolId);
+        queue.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    listener.onSuccess();
+                } else {
+                    listener.onError(App.getInstance().getString(R.string.request_error));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onError(App.getInstance().getString(R.string.network_error));
+            }
+        });
+    }
+
+    @Override
     public void sendClassStudentsPswd(long classId, final OnFinishedListener listener) {
         AdminApi api = ApiClient.getAuthorizedClient().create(AdminApi.class);
 
@@ -246,6 +268,28 @@ class DashboardInteractorImpl implements DashboardInteractor {
         AdminApi api = ApiClient.getAuthorizedClient().create(AdminApi.class);
 
         Call<Void> queue = api.sendTeachersPswd(schoolId);
+        queue.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    listener.onSuccess();
+                } else {
+                    listener.onError(App.getInstance().getString(R.string.request_error));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onError(App.getInstance().getString(R.string.network_error));
+            }
+        });
+    }
+
+    @Override
+    public void sendUnloggedTeachersPswd(long schoolId, final OnFinishedListener listener) {
+        AdminApi api = ApiClient.getAuthorizedClient().create(AdminApi.class);
+
+        Call<Void> queue = api.sendUnloggedTchrsPswd(schoolId);
         queue.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

@@ -19,10 +19,12 @@
 
     <string name="one">Send Homework</string>
     <string name="two">Send Students Pswd</string>
+    <string name="two_half">Send UnLogged Stds Pswd</string>
     <string name="three">Send Class Pswd</string>
     <string name="four">Send Section Pswd</string>
     <string name="five">Send Student Pswd</string>
     <string name="six">Send Teachers Pswd</string>
+    <string name="six_half">Send UnLogged Tchrs Pswd</string>
     <string name="seven">Send Teacher Pswd</string>
     <string name="eight">Update Students Pswd</string>
     <string name="nine">Update Class Pswd</string>
