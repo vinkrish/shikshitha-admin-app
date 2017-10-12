@@ -81,7 +81,7 @@ class DashboardPresenterImpl implements DashboardPresenter, DashboardInteractor.
     public void sendUnloggedStdsPswd(long schoolId) {
         if (mView != null) {
             mView.showProgress();
-            mInteractor.sendSchoolStudentsPswd(schoolId, this);
+            mInteractor.sendUnloggedStudentsPswd(schoolId, this);
         }
     }
 
@@ -121,7 +121,7 @@ class DashboardPresenterImpl implements DashboardPresenter, DashboardInteractor.
     public void sendUnloggedTchrsPswd(long schoolId) {
         if (mView != null) {
             mView.showProgress();
-            mInteractor.sendSchoolTeachersPswd(schoolId, this);
+            mInteractor.sendUnloggedTeachersPswd(schoolId, this);
         }
     }
 

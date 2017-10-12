@@ -91,6 +91,9 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
             case R.id.send_students_pswd:
                 presenter.sendSchoolStudentsPswd(((School)schoolSpinner.getSelectedItem()).getId());
                 return true;
+            case R.id.send_unlogged_stds_pswd:
+                presenter.sendUnloggedStdsPswd(((School)schoolSpinner.getSelectedItem()).getId());
+                return true;
             case R.id.send_class_pswd:
                 presenter.sendClassStudentsPswd(((Clas)classSpinner.getSelectedItem()).getId());
                 return true;
@@ -102,6 +105,9 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
                 return true;
             case R.id.send_teachers_pswd:
                 presenter.sendSchoolTeachersPswd(((School)schoolSpinner.getSelectedItem()).getId());
+                return true;
+            case R.id.send_unlogged_tchrs_pswd:
+                presenter.sendUnloggedTchrsPswd(((School)schoolSpinner.getSelectedItem()).getId());
                 return true;
             case R.id.send_teacher_pswd:
                 presenter.sendTeacherPswd(((Teacher)teacherSpinner.getSelectedItem()).getId());
