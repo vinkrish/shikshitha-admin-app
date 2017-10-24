@@ -220,6 +220,28 @@ class DashboardInteractorImpl implements DashboardInteractor {
     }
 
     @Override
+    public void sendUnloggedClassPswd(long classId, final OnFinishedListener listener) {
+        AdminApi api = ApiClient.getAuthorizedClient().create(AdminApi.class);
+
+        Call<Void> queue = api.sendUnloggedClassPswd(classId);
+        queue.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    listener.onSuccess();
+                } else {
+                    listener.onError(App.getInstance().getString(R.string.request_error));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onError(App.getInstance().getString(R.string.network_error));
+            }
+        });
+    }
+
+    @Override
     public void sendSectionStudentsPswd(long sectionId, final OnFinishedListener listener) {
         AdminApi api = ApiClient.getAuthorizedClient().create(AdminApi.class);
 

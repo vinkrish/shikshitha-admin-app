@@ -94,6 +94,14 @@ class DashboardPresenterImpl implements DashboardPresenter, DashboardInteractor.
     }
 
     @Override
+    public void sendUnloggedClassPswd(long classId) {
+        if (mView != null) {
+            mView.showProgress();
+            mInteractor.sendUnloggedClassPswd(classId, this);
+        }
+    }
+
+    @Override
     public void sendSectionStudentsPswd(long sectionId) {
         if (mView != null) {
             mView.showProgress();

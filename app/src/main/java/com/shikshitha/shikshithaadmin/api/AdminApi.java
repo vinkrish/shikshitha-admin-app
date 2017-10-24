@@ -73,6 +73,9 @@ public interface AdminApi {
     @POST("sms/class/{classId}")
     Call<Void> sendClassPswd(@Path("classId") long classId);
 
+    @POST("sms/class/{classId}/unlogged")
+    Call<Void> sendUnloggedClassPswd(@Path("classId") long classId);
+
     @POST("sms/section/{sectionId}")
     Call<Void> sendSectionPswd(@Path("sectionId") long sectionId);
 

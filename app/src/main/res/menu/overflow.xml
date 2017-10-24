@@ -23,6 +23,11 @@
         android:visible="true"
         app:showAsAction="never" />
     <item
+        android:id="@+id/send_unlogged_class_pswd"
+        android:title="@string/three_half"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/send_section_pswd"
         android:title="@string/four"
         android:visible="true"

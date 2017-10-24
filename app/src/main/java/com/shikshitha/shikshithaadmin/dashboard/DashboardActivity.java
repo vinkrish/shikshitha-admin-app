@@ -97,6 +97,9 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
             case R.id.send_class_pswd:
                 presenter.sendClassStudentsPswd(((Clas)classSpinner.getSelectedItem()).getId());
                 return true;
+            case R.id.send_unlogged_class_pswd:
+                presenter.sendUnloggedClassPswd(((Clas)classSpinner.getSelectedItem()).getId());
+                return true;
             case R.id.send_section_pswd:
                 presenter.sendSectionStudentsPswd(((Section)sectionSpinner.getSelectedItem()).getId());
                 return true;
