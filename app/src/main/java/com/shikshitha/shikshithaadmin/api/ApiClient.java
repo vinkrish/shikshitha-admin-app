@@ -1,5 +1,7 @@
 package com.shikshitha.shikshithaadmin.api;
 
+import android.util.Log;
+
 import com.shikshitha.shikshithaadmin.App;
 import com.shikshitha.shikshithaadmin.util.SharedPreferenceUtil;
 
@@ -21,13 +23,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     //private static final String BASE_URL = "http://192.168.1.3:8080/webapi/";
     private static final String BASE_URL = "http://Custom-env.mkitxvjm8m.us-west-2.elasticbeanstalk.com/webapi/";
-	//private static final String BASE_URL = "http://ec2-35-167-37-98.us-west-2.compute.amazonaws.com/webapi/";
     private static Retrofit authRetrofit = null;
     private static Retrofit retrofit = null;
 
     public static Retrofit getAuthorizedClient() {
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        //HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        //logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
@@ -44,10 +45,10 @@ public class ApiClient {
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
-                .addInterceptor(logging)
                 .build();
 
         if (authRetrofit == null) {
+            Log.d("Retro called", "repeated");
             authRetrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(client)

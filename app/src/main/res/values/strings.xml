@@ -15,7 +15,7 @@
     <string name="request_error">Connection timed out.</string>
     <string name="retry">Retry</string>
     <string name="refresh">Refresh</string>
-    <string name="title_activity_dashboard">Shikshitha - Prez Control</string>
+    <string name="title_activity_dashboard">Shikshitha</string>
 
     <string name="one">Send Homework</string>
     <string name="two">Send Students Pswd</string>
@@ -40,7 +40,7 @@
     <string name="select_section">Section</string>
     <string name="select_student">Student</string>
     <string name="select_teacher">Teacher</string>
-    <string name="manage_version">Manage App Version</string>
+    <string name="manage_version">Manage App Versions</string>
 
     <string name="ver_id">Version Id</string>
     <string name="ver_name">Version Name</string>

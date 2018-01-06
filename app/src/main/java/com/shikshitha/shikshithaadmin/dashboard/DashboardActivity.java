@@ -2,6 +2,7 @@ package com.shikshitha.shikshithaadmin.dashboard;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -11,11 +12,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.shikshitha.shikshithaadmin.R;
 import com.shikshitha.shikshithaadmin.login.LoginActivity;
@@ -39,10 +42,8 @@ import butterknife.ButterKnife;
 public class DashboardActivity extends AppCompatActivity implements DashboardView,
         AdapterView.OnItemSelectedListener{
     @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.coordinatorLayout)
-    CoordinatorLayout coordinatorLayout;
-    @BindView(R.id.progress_bar)
-    ProgressBar progressBar;
+    @BindView(R.id.coordinatorLayout) CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.progress_bar) ProgressBar progressBar;
     @BindView(R.id.school_spinner) Spinner schoolSpinner;
     @BindView(R.id.class_spinner) Spinner classSpinner;
     @BindView(R.id.section_spinner) Spinner sectionSpinner;
@@ -69,7 +70,6 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
 
         ElasticBeanstalkReceiver alarm = new ElasticBeanstalkReceiver();
         alarm.setAlarm(getApplicationContext());
-
     }
 
     @Override
@@ -182,8 +182,29 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
 
     @Override
     public void showSchool(List<School> schoolList) {
+        School hint = new School();
+        hint.setId(-1);
+        hint.setSchoolName("Select School...");
+        schoolList.add(0, hint);
         ArrayAdapter<School> adapter = new
-                ArrayAdapter<>(this, android.R.layout.simple_spinner_item, schoolList);
+                ArrayAdapter<School>(this, android.R.layout.simple_spinner_item, schoolList) {
+                    @Override
+                    public boolean isEnabled(int position){
+                        return position != 0;
+                    }
+                    @Override
+                    public View getDropDownView(int position, View convertView,
+                                                ViewGroup parent) {
+                        View view = super.getDropDownView(position, convertView, parent);
+                        TextView tv = (TextView) view;
+                        if(position == 0){
+                            tv.setTextColor(Color.GRAY);
+                        } else {
+                            tv.setTextColor(Color.BLACK);
+                        }
+                        return view;
+                    }
+                };
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         schoolSpinner.setAdapter(adapter);
         schoolSpinner.setOnItemSelectedListener(this);
