@@ -49,6 +49,10 @@ class VersionAdapter extends RecyclerView.Adapter<VersionAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
+    AppVersion getLastItem() {
+        return items.get(getItemCount()-1);
+    }
+
     @Override
     public VersionAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.app_version_item, parent, false);
@@ -66,12 +70,9 @@ class VersionAdapter extends RecyclerView.Adapter<VersionAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.app_version_id)
-        TextView appVersionId;
-        @BindView(R.id.app_version_status)
-        TextView appVersionStatus;
-        @BindView(R.id.app_name)
-        TextView appName;
+        @BindView(R.id.app_version_id) TextView appVersionId;
+        @BindView(R.id.app_version_status) TextView appVersionStatus;
+        @BindView(R.id.app_name) TextView appName;
 
         ViewHolder(View view) {
             super(view);
